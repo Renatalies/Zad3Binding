@@ -1,0 +1,47 @@
+﻿<Window x:Class="Zad3Binding.EditMovieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+      Title="Modyfikacja filmu" Height="400" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Tytuł:" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedMovie.Title}" Margin="5"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Reżyser:" Margin="5"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedMovie.Director}" Margin="5"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Wydawca:" Margin="5"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedMovie.Studio}" Margin="5"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Nośnik:" Margin="5"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Mediums}" SelectedItem="{Binding SelectedMovie.Medium}" Margin="5"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Czas Trwania:" Margin="5"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedMovie.Duration}" Margin="5"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Data Wydania:" Margin="5"/>
+        <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding SelectedMovie.ReleaseDate}" Margin="5"/>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Zapisz" Width="75" Margin="5" Click="Save_Click"/>
+            <Button Content="Anuluj" Width="75" Margin="5" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
